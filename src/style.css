@@ -17,8 +17,14 @@
 }
 
 /* ================= BODY ================= */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
+  width: 100%;
   font-family: "Inter", "Segoe UI", sans-serif;
   color: var(--white);
   background-color: var(--bg);
@@ -41,7 +47,7 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  inset: -20% -10%;
+  inset: 0;
   background:
     radial-gradient(45% 45% at 20% 20%, rgba(216,180,106,0.18), transparent 60%),
     radial-gradient(35% 35% at 80% 30%, rgba(216,180,106,0.14), transparent 65%),
@@ -52,6 +58,12 @@ body::after {
   mix-blend-mode: screen;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ================= NAVBAR ================= */
 .nav {
   width: 100%;
@@ -59,6 +71,8 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 12px;
   background: rgba(5,5,7,0.96);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(216,180,106,0.25);
@@ -81,6 +95,7 @@ body::after {
 .nav div {
   display: flex;
   gap: 26px;
+  flex-wrap: wrap;
 }
 
 .nav a {
@@ -101,6 +116,7 @@ section {
 
 .page {
   max-width: 1300px; /* Increased from 1200px */
+  width: 100%;
   margin: auto;
 }
 
@@ -135,11 +151,11 @@ button:hover {
 
 .home-wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 6vw, 60px);
   align-items: center;
   margin-bottom: 70px;
-  padding: 60px 80px;
+  padding: clamp(32px, 6vw, 60px) clamp(22px, 7vw, 80px);
   border-radius: 32px;
   background:
     radial-gradient(120% 120% at 10% 10%, rgba(216,180,106,0.12), transparent 60%),
@@ -151,6 +167,7 @@ button:hover {
   position: relative;
   overflow: hidden;
   max-width: 1150px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -161,6 +178,13 @@ button:hover {
   background: radial-gradient(110% 110% at 0% 0%, rgba(216,180,106,0.14), transparent 60%);
   opacity: 0.6;
   pointer-events: none;
+}
+
+.home-wrapper > *,
+.about-grid > *,
+.projects-grid > *,
+.contact-container > * {
+  min-width: 0;
 }
 
 .home-eyebrow {
@@ -174,11 +198,11 @@ button:hover {
 
 .home-text h1 {
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 48px;
+  font-size: clamp(30px, 4.6vw, 48px);
   line-height: 1.2;
   letter-spacing: 0.4px;
   margin-bottom: 15px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .home-role {
@@ -201,15 +225,17 @@ button:hover {
   display: flex;
   gap: 16px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .home-stats div {
+  flex: 1 1 110px;
+  min-width: 0;
   text-align: center;
   background: rgba(7,7,9,0.65);
   padding: 14px 18px;
   border-radius: 16px;
   border: 1px solid rgba(216,180,106,0.2);
-  min-width: 110px;
   box-shadow: inset 0 0 12px rgba(216,180,106,0.05);
 }
 
@@ -228,6 +254,7 @@ button:hover {
 .home-buttons {
   display: flex;
   gap: 22px;
+  flex-wrap: wrap;
 }
 
 .home-photo {
@@ -241,8 +268,8 @@ button:hover {
 .home-photo::before {
   content: "";
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: clamp(200px, 55vw, 280px);
+  height: clamp(200px, 55vw, 280px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(216,180,106,0.35), transparent 65%);
   filter: blur(15px);
@@ -252,8 +279,8 @@ button:hover {
 .home-photo img {
   position: relative;
   z-index: 1;
-  width: 280px;
-  height: 280px;
+  width: clamp(200px, 55vw, 280px);
+  height: clamp(200px, 55vw, 280px);
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -686,15 +713,22 @@ footer {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1100px) {
+  .nav {
+    padding: 18px 36px;
+    justify-content: center;
+    gap: 12px;
+  }
+  .nav div {
+    justify-content: center;
+    gap: 16px;
+  }
+  section {
+    padding: 30px 6%;
+  }
   .home-wrapper {
-    padding: 60px;
     grid-template-columns: 1fr; /* Stacks on tablet to avoid squashing */
     text-align: center;
     max-width: 700px;
-  }
-  .home-text h1 {
-    white-space: normal; /* Allow wrapping on small screens */
-    font-size: 40px;
   }
   .home-desc {
     margin: 0 auto 28px;
@@ -702,14 +736,83 @@ footer {
   .home-stats, .home-buttons, .home-photo {
     justify-content: center;
   }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
+  .nav {
+    padding: 14px 22px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .nav h2 {
+    font-size: 24px;
+  }
+  .nav a {
+    font-size: 14px;
+  }
+  section {
+    padding: 26px 6%;
+  }
+  .home-wrapper {
+    padding: 36px 22px;
+    gap: 36px;
+    border-radius: 24px;
+  }
   .home-text h1 {
     font-size: 32px;
+  }
+  .home-stats {
+    justify-content: center;
+  }
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .home-buttons a {
+    width: 100%;
+    max-width: 240px;
+    display: inline-flex;
+    justify-content: center;
+  }
+  .home-buttons button {
+    width: 100%;
+    max-width: 240px;
   }
   .home-photo img {
     width: 220px;
     height: 220px;
+  }
+  .about-card {
+    padding: 28px 22px;
+  }
+  .about-card h1 {
+    font-size: 32px;
+  }
+  .about-panel {
+    padding: 20px;
+  }
+  .project-card {
+    padding: 22px;
+  }
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .contact-info-box, .contact-form-box {
+    padding: 24px;
+  }
+  .contact-info-box h3 {
+    font-size: 26px;
+  }
+  .contact-form-box h2 {
+    font-size: 30px;
   }
 }
