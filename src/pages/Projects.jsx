@@ -2,43 +2,43 @@ const projects = [
   {
     name: "InnerBalance",
     tech: "React",
-    desc: "A focused productivity app with crisp UI and responsive layouts.",
+    desc: "A minimalist wellness dashboard featuring fluid UI and distraction-free layouts.",
     link: "https://innerbalance0.netlify.app/"
   },
   {
     name: "MealShare",
     tech: "MERN",
-    desc: "A focused productivity app with crisp UI and responsive layouts.",
+    desc: "A full-stack community platform with secure authentication and real-time data syncing.",
     link: "https://mealshare0.netlify.app/"
   },
   {
     name: "Todo App",
     tech: "JavaScript",
-    desc: "A focused productivity app with crisp UI and responsive layouts.",
+    desc: "A high-performance task manager leveraging native JS for seamless DOM manipulation.",
     link: "https://todo-by-mahabali.netlify.app/"
   },
   {
     name: "Portfolio Website",
     tech: "React + Vite",
-    desc: "A luxury-inspired personal site with smooth sections and bold typography.",
+    desc: "A luxury-inspired digital showroom blending bold typography with smooth transitions.",
     link: "#"
   },
   {
     name: "CRUD System",
     tech: "PHP + MySQL",
-    desc: "A clean admin workflow with validated forms and fast data handling.",
+    desc: "A robust administrative engine focused on asynchronous data handling and validation.",
     link: "https://crud-php-using-ajax.netlify.app/"
   },
-    {
+  {
     name: "Signup Page",
-    tech: "HTML + CSS",
-    desc: "A luxury-inspired personal site with smooth sections and bold typography.",
+    tech: "React",
+    desc: "A pixel-perfect authentication interface emphasizing accessible design and form logic.",
     link: "https://signup-page-using-reactjs.netlify.app/"
   },
   {
     name: "Netflix Cards",
     tech: "JavaScript",
-    desc: "A clean admin workflow with validated forms and fast data handling.",
+    desc: "A dynamic content gallery exploring interactive hover effects and responsive grid layouts.",
     link: "https://clonebymahabalii.netlify.app/"
   }
 ];
