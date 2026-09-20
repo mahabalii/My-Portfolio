@@ -58,7 +58,10 @@ function Home() {
 
         {/* RIGHT SIDE */}
         <div className="home-photo">
-          <img src={me} alt="Mahabali" />
+          <div className="home-photo-frame">
+            <img className="home-photo-fill" src={me} alt="" aria-hidden="true" />
+            <img className="home-photo-portrait" src={me} alt="Mahabali" />
+          </div>
         </div>
       </div>
     </section>
