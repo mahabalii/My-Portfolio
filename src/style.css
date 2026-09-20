@@ -276,37 +276,18 @@ button:hover {
   opacity: 0.6;
 }
 
-.home-photo-frame {
+.home-photo img {
   position: relative;
   z-index: 1;
   width: clamp(200px, 55vw, 280px);
   height: clamp(200px, 55vw, 280px);
   border-radius: 50%;
   overflow: hidden;
+  /* Fill the circle with the smallest possible crop, keeping the face in view. */
+  object-fit: cover;
+  object-position: center 41%;
   border: 3px solid var(--gold);
   box-shadow: 0 0 45px rgba(216,180,106,0.45);
-  background: #f7f7f5;
-}
-
-.home-photo-fill {
-  position: absolute;
-  inset: -10%;
-  width: 120%;
-  height: 120%;
-  object-fit: cover;
-  object-position: center center;
-  filter: blur(16px);
-  opacity: 0.58;
-}
-
-.home-photo-portrait {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  /* Keep the full portrait in view without stretching or zooming it. */
-  object-fit: contain;
-  object-position: center bottom;
 }
 
 /* === NEW: DOWNLOAD BUTTON STYLE === */
@@ -805,7 +786,7 @@ footer {
     width: 100%;
     max-width: 240px;
   }
-  .home-photo-frame {
+  .home-photo img {
     width: 220px;
     height: 220px;
   }
