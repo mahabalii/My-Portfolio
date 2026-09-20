@@ -282,11 +282,13 @@ button:hover {
   width: clamp(200px, 55vw, 280px);
   height: clamp(200px, 55vw, 280px);
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
+  /* Keep the complete portrait in frame instead of tightly cropping the face. */
+  object-fit: contain;
+  object-position: center bottom;
   border: 3px solid var(--gold);
   box-shadow: 0 0 45px rgba(216,180,106,0.45);
-  background: transparent;
+  /* Matches the light background of the portrait in the extra side space. */
+  background: #f7f7f5;
 }
 
 /* === NEW: DOWNLOAD BUTTON STYLE === */
